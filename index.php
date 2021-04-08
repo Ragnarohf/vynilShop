@@ -8,6 +8,14 @@ $vinyles = selectAllVinyles("title");
 ?>
 
 <div id="slider"></div>
+<div id="submenu">
+    <label for="order">Trier les vinyles</label>
+    <select name="order" id="order">
+        <option value="title">Titre</option>
+        <option value="artiste">Artistes</option>
+        <option value="genre">Genre</option>
+    </select>
+</div>
 <section id='article'>
     <?php
     for ($i = 0; $i < count($vinyles); $i++) {
@@ -41,3 +49,4 @@ $vinyles = selectAllVinyles("title");
 include('./inc/footer.php');
 ?>
 <script src="./assets/js/carouselMultiEffets.js"></script>
+<script src="./assets/js/order.js"></script>
