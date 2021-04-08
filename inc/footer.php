@@ -34,7 +34,7 @@
                             <!--Grid column-->
                             <div class="col-auto">
                                 <p class="pt-2">
-                                    <strong>Sign up for our newsletter</strong>
+                                    <strong>inscrivez-vous pour la Newsletter</strong>
                                 </p>
                             </div>
                             <!--Grid column-->
@@ -44,7 +44,7 @@
                                 <!-- Email input -->
                                 <div class="form-outline form-white mb-4">
                                     <input type="email" id="form5Example2" class="form-control" />
-                                    <label class="form-label" for="form5Example2">Email address</label>
+                                    <label class="form-label" for="form5Example2">Adresse Email</label>
                                 </div>
                             </div>
                             <!--Grid column-->
@@ -53,7 +53,7 @@
                             <div class="col-auto">
                                 <!-- Submit button -->
                                 <button type="submit" class="btn btn-outline-light mb-4">
-                                    Subscribe
+                                    S'inscrire
                                 </button>
                             </div>
                             <!--Grid column-->
@@ -80,7 +80,7 @@
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                 © 2021 Copyright:
-                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                <a class="text-white" href="https://github.com/Ragnarohf/vynilShop/tree/master" target="blank">Ragna_Dev</a>
             </div>
             <!-- Copyright -->
         </footer>
