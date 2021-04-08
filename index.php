@@ -1,8 +1,13 @@
 <?php
 require_once("./inc/functions.php");
 include('./inc/header.php');
-$vinyles = selectAllVinyles("title");
-// var_dump($vinyles);
+
+$order = "title";
+if (!empty($_GET)) {
+    $order = $_GET['order'];
+}
+$vinyles = selectAllVinyles($order);
+//var_dump($vinyles);
 // die();
 
 ?>
@@ -11,9 +16,15 @@ $vinyles = selectAllVinyles("title");
 <div id="submenu">
     <label for="order">Trier les vinyles</label>
     <select name="order" id="order">
-        <option value="title">Titre</option>
-        <option value="artiste">Artistes</option>
-        <option value="genre">Genre</option>
+        <option value="title" <?php if ($order === "title") {
+                                    echo "selected";
+                                } ?>>Titre</option>
+        <option value="artiste" <?php if ($order === "artiste") {
+                                    echo "selected";
+                                } ?>>Artistes</option>
+        <option value="genre" <?php if ($order === "genre") {
+                                    echo "selected";
+                                } ?>>Genre</option>
     </select>
 </div>
 <section id='article'>
