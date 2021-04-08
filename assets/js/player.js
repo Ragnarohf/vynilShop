@@ -8,8 +8,7 @@ $(document).ready(function () {
   const urlAudio = "./assets/audio/";
   // urls des fichiers images pour chaque tracks
   const urlImgCover = "./assets/cover/";
-  // tableau d'informations pour chaque fichier audio
-  const tbPlaylist = [];
+
   // definition des étapes de volumes + et - (de 1 à 0)
   let stepAudio = 0.05;
   // indice de lecture des fichiers audio en fonction du tableau tbPlaylist

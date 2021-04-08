@@ -23,6 +23,18 @@ include('./inc/header.php');
             <a class="btn btn-primary btn-lg" href="#" role="button">Mettre dans le panier</a>
         </p>
     </div>
+    <script>
+        // tableau d'informations pour chaque fichier audio
+        const tbPlaylist = [{
+            mp3: "<?= $vinyle['mp3'] ?>",
+            cover: "<?= $vinyle['cover_img'] ?>",
+            title: "<?= $vinyle['title'] ?>",
+            artiste: "<?= $vinyle['artiste'] ?>",
+            genre: "<?= $vinyle['genre'] ?>",
+            annee: "<?= $vinyle['annee'] ?>",
+            desc: "<?= $vinyle['description'] ?>"
+        }];
+    </script>
     <?php
     include("./inc/lecteur.php") ?>
 </section>
