@@ -135,3 +135,7 @@ select:hover {
 .error {
   color: red;
 }
+#slider {
+  max-width: 100%;
+  overflow: hidden;
+}
