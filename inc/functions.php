@@ -16,7 +16,7 @@ function selectAllVinyles($order)
 function selectVinyleById($id)
 {
     global $pdo;
-    var_dump($id);
+    // var_dump($id);
     $rq = "SELECT * from vinyles where id =:id";
     $query = $pdo->prepare($rq);
     $query->bindValue(':id', $id, PDO::PARAM_INT);
