@@ -2,7 +2,7 @@
 include('./inc/header.php');
 ?>
 
-<div class="slider"></div>
+<div id="slider"></div>
 
 <?php
 include('./inc/footer.php');
