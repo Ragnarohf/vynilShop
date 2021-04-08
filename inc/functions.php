@@ -12,3 +12,15 @@ function selectAllVinyles($order)
     $result = $query->fetchAll();
     return $result;
 }
+
+function selectVinyleById($id)
+{
+    global $pdo;
+    var_dump($id);
+    $rq = "SELECT * from vinyles where id =:id";
+    $query = $pdo->prepare($rq);
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+    $query->execute();
+    $result = $query->fetch();
+    return $result;
+}
