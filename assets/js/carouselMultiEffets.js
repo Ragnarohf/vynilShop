@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
   imageA.id = "imageA";
   imageA.alt = "blablabla";
   imageA.style.width = "100%";
+  imageA.style.minheight = "100%";
   imageA.style.position = "absolute";
   // ajouts d'effet?
   carousel.prepend(imageA);
