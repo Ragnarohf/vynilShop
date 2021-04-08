@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // temps de transitionCSS en ms
   let timeCssTrans = 2000;
   // width du carousel en px
-  let carouselWidth = 1920;
+  let carouselWidth = 1280;
   // height du carousel en px
-  let carouselHeight = 1050;
+  let carouselHeight = 300;
   // emplacement dans l'HTML du carousel (ici en tête du <body></body>)
   let carouselParent = document.getElementById("slider");
   // types d'effets de défilement d'images
