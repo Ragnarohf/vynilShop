@@ -11,7 +11,13 @@ $vinyles = selectAllVinyles("title");
 <section id='article'>
     <?php
     for ($i = 0; $i < count($vinyles); $i++) {
+
+        /*  racourcis pour inserer du code php dans html
+            <?= $title ?>
+            <?php echo $title; ?>
+        */
     ?>
+
 
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="./assets/cover/<?= $vinyles[$i]['cover_img'] ?>" alt="<?= $vinyles[$i]['title'] . " - " . $vinyles[$i]['artiste'] ?>">
