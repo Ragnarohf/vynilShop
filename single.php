@@ -8,24 +8,25 @@ if (!empty($_GET)) {
 }
 include('./inc/header.php');
 ?>
-<div class="jumbotron">
-    <img src="./assets/cover/<?= $vinyle['cover_img'] ?>" alt="" class='img-fluid'>
-    <h1 class="display-4"><?= $vinyle['title'] ?></h1>
-    <p class="lead"><?= $vinyle['artiste'] ?></p>
-    <p class="lead muted"><?= $vinyle['genre'] ?></p>
-    <p class="lead "><?= $vinyle['annee'] ?></p>
+<section id="single">
 
+    <div class="jumbotron">
+        <img src="./assets/cover/<?= $vinyle['cover_img'] ?>" alt="" class='img-fluid'>
+        <h1 class="display-4"><?= $vinyle['title'] ?></h1>
+        <p class="lead"><?= $vinyle['artiste'] ?></p>
+        <p class="lead muted"><?= $vinyle['genre'] ?></p>
+        <p class="lead "><?= $vinyle['annee'] ?></p>
 
+        <p class="lead muted"><?= $vinyle['description'] ?></p>
+        </p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Mettre dans le panier</a>
+        </p>
+    </div>
+    <?php
+    include("./inc/lecteur.php") ?>
+</section>
 
-    <p class="lead muted"><?= $vinyle['description'] ?></p>
-    </p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Mettre dans le panier</a>
-    </p>
-</div>
-<div id="player">
-
-</div>
 <?php
 include('./inc/footer.php');
 ?>

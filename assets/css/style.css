@@ -147,3 +147,7 @@ select:hover {
   justify-content: space-around;
   flex-wrap: wrap;
 }
+#single {
+  display: flex;
+  justify-content: space-around;
+}
