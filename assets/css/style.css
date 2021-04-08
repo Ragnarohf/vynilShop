@@ -143,3 +143,8 @@ select:hover {
   justify-content: center;
   align-items: center;
 }
+#article {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

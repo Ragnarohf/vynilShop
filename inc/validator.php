@@ -58,7 +58,7 @@ if (!empty($_POST)) {
 
     //image
     if ($_FILES['coverImg']["size"] > 0 && $_FILES['coverImg']["error"] === 0) {
-        if ($_FILES["coverImg"]['type'] === "image/jpeg") {
+        if ($_FILES["coverImg"]['type'] === "image/jpeg" || $_FILES["coverImg"]['type'] === "image/jpg" || $_FILES["coverImg"]['type'] === "image/gif" || $_FILES["coverImg"]['type'] === "image/png" || $_FILES["coverImg"]['type'] === "image/webp") {
             $coverImg = $_FILES["coverImg"]['tmp_name'];
         } else {
             $erreur['coverImg'] = "le fichier coverImg n'est pas au bon format";
