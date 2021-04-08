@@ -46,7 +46,7 @@ $vinyles = selectAllVinyles($order);
                 <p class="card-text"><?= $vinyles[$i]['genre'] ?></p>
 
 
-                <a href="single.php?id=<?= $vinyles[$i]['id'] ?>" class="btn btn-primary">Plus d'infos...</a>
+                <a href="single.php?id=<?= $vinyles[$i]['id'] ?>" class="btn btn-primary">Ecoutez le morceau</a>
             </div>
         </div>
     <?php
