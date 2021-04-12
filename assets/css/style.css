@@ -75,7 +75,8 @@ body {
   justify-content: center;
 }
 
-#formmp3 {
+#formmp3,
+#formUser {
   width: 100%;
   min-height: 100%;
   display: flex;
@@ -83,7 +84,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-#formmp3 h1 {
+#formmp3 h1,
+#formUser h1 {
   margin: 0.5rem auto;
   color: var(--primaryFocus);
 }

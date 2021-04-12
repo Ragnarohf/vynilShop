@@ -30,7 +30,10 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Formulaires user</a>
+                        <a class="nav-link" href="registration.php">Formulaires user</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formulaire.php">Formulaires admin</a>
