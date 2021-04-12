@@ -2,7 +2,7 @@
 require_once("./inc/functions.php");
 require_once("./inc/pdo.php"); // ne sert a rien deja appelé dans functions.php
 include('./inc/header.php');
-//je teste l'existance de données post
+//je teste l'existance de données post 
 if (!empty($_POST)) {
     $erreur = [];
     // autre methode pour traiter mes entrés
@@ -14,12 +14,18 @@ if (!empty($_POST)) {
     $login = verifInput("login", "vous n'avez pas remplie le champ login.");
     $pwd = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
     $pwd2 = verifInput("pwd2", "vous n'avez pas remplie le champ pwd2.");
-
+    if ($pwd !== $pwd2) {
+        $erreur['pwd2'] = "les 2 passwords ne sont pas identiques";
+    }
     $email = verifInput("email", "vous n'avez pas remplie le champ email.");
+    // filter_var ???
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreur["email"] = "l'adresse email n'est pas validé";
+    }
     $addr1 = verifInput("addr1", "vous n'avez pas remplie le champ addr1.");
     $addr2 = trim(strip_tags($_POST["addr2"]));
     $cp = intval(verifInput("cp", "vous n'avez pas remplie le champ cp."));
-    $tel = verifInput("tel", "vous n'avez pas remplie le champ tel.");
+    $tel = intval(verifInput("tel", "vous n'avez pas remplie le champ tel."));
     $ville = verifInput("ville", "vous n'avez pas remplie le champ ville.");
 }
 ?>
