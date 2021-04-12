@@ -1,5 +1,12 @@
 <?php
 session_start();
+if (!empty($_SESSION)) {
+    if ($_SESSION['role'] !== 'role_admin') {
+        header("Location:index.php");
+    }
+} else {
+    header("Location:index.php");
+}
 require_once("./inc/functions.php");
 include('./inc/header.php');
 $erreur = [];

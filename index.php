@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-
-
 require_once("./inc/functions.php");
 include('./inc/header.php');
 
