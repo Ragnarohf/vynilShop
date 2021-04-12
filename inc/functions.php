@@ -50,7 +50,7 @@ function selectUserBy($field, $value, $type)
     // var_dump($id);
     $rq = "SELECT * from user where " . $field . "=:" . $field;
     $query = $pdo->prepare($rq);
-    $query->bindValue(':', $field, $type);
+    $query->bindValue(':' . $field, $value, $type);
     $query->execute();
     $result = $query->fetch();
     return $result;

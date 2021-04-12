@@ -36,7 +36,7 @@ if (!empty($_POST)) {
         $erreur['email'] = 'Cet email est deja enregistré';
     }
 
-    // var_dump($erreur);
+    var_dump($erreur);
     if (count($erreur) === 0) {
         $hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
         $_POST['pwd'] = password_hash($hashPwd, PASSWORD_ARGON2I);
