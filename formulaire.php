@@ -1,4 +1,7 @@
 <?php
+
+require_once("./inc/functions.php");
+include('./inc/header.php');
 $erreur = [];
 if (!empty($_GET)) {
     var_dump(unserialize(($_GET['er'])));
@@ -73,5 +76,8 @@ if (!empty($_GET)) {
     </div>
 
 </body>
+<?php
+include('./inc/footer.php');
+?>
 
 </html>

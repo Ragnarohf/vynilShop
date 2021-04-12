@@ -25,13 +25,13 @@ if (!empty($_POST)) {
     $_POST['addr1'] = verifInput("addr1", "vous n'avez pas remplie le champ addr1.");
     $_POST['addr2'] = trim(strip_tags($_POST["addr2"]));
     $_POST['cp'] = verifNum("cp", '5', "le code postal n'est pas valide");
-    var_dump($_POST['cp']);
+    // var_dump($_POST['cp']);
     $_POST['tel'] = verifNum("tel", '10', "le numero de tel n'est pas valide");
-    var_dump($_POST['tel']);
+    // var_dump($_POST['tel']);
     $_POST['ville'] = verifInput("ville", "vous n'avez pas remplie le champ ville.");
 
 
-    var_dump($erreur);
+    // var_dump($erreur);
     if (count($erreur) === 0) {
         $hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
         $_POST['pwd'] = password_hash($hashPwd, PASSWORD_ARGON2I);
