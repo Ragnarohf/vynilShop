@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION["prenom"] = "tintin";
+
 require_once("./inc/functions.php");
 include('./inc/header.php');
 

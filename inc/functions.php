@@ -29,7 +29,7 @@ function insertUser($tbUSer)
 {
     global $pdo;
     $rq = "INSERT INTO user(nom,prenom, login, pwd, role, email, addr1, addr2, cp, ville, tel )
-            VALUES (:nom,:prenom, :login, :pwd, 'user', :email, :addr1, :addr2, :cp, :ville, :tel)";
+            VALUES (:nom,:prenom, :login, :pwd, 'role_user', :email, :addr1, :addr2, :cp, :ville, :tel)";
     $query = $pdo->prepare($rq);
     $query->bindValue(':nom', $tbUSer['nom'], PDO::PARAM_STR);
     $query->bindValue(':prenom', $tbUSer['prenom'], PDO::PARAM_STR);

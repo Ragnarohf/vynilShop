@@ -55,6 +55,9 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
+        <div>
+            bonjour <?php echo $_SESSION["prenom"]; ?>
+        </div>
 
     </header>
     <main>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("./inc/functions.php");
 if (!empty($_GET)) {
     $id = intval($_GET['id']);

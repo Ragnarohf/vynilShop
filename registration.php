@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("./inc/functions.php");
 require_once("./inc/pdo.php"); // ne sert a rien deja appelé dans functions.php
 include('./inc/header.php');
