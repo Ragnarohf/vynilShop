@@ -42,6 +42,8 @@ if (!empty($_POST)) {
         $hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
         $_POST['pwd'] = password_hash($hashPwd, PASSWORD_ARGON2I);
         insertUser($_POST);
+        // mon utilisateur est bien enregistré
+        //je rentre ses informations dans la $_SESSION
         $_SESSION['nom'] = $_POST['nom'];
         $_SESSION['prenom'] = $_POST['prenom'];
         $_SESSION['role'] = $_POST['role'];

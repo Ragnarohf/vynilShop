@@ -38,6 +38,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="formulaire.php">Formulaires admin</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">logout</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown link
@@ -55,9 +58,10 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
-        <div>
-            bonjour <?php echo $_SESSION["prenom"];   ?>
-        </div>
-
+        <?php if (!empty($_SESSION)) { ?>
+            <div>Bonjour <?= $_SESSION['prenom'] . " " . $_SESSION['nom'] ?></div>
+        <?php } else { ?>
+            <div>Vous n'êtes pas enregistrés.</div>
+        <?php } ?>
     </header>
     <main>
