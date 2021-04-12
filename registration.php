@@ -34,7 +34,7 @@ if (!empty($_POST)) {
     var_dump($erreur);
     if (count($erreur) === 0) {
         $hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
-        $_POST['pwd'] = password_hash($hashpwd, PASSWORD_ARGON2I);
+        $_POST['pwd'] = password_hash($hashPwd, PASSWORD_ARGON2I);
         insertUser($_POST);
     }
 };
