@@ -14,6 +14,7 @@ if (!empty($_POST)) {
     $login = verifInput("login", "vous n'avez pas remplie le champ login.");
     $pwd = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
     $pwd2 = verifInput("pwd2", "vous n'avez pas remplie le champ pwd2.");
+
     $email = verifInput("email", "vous n'avez pas remplie le champ email.");
     $addr1 = verifInput("addr1", "vous n'avez pas remplie le champ addr1.");
     $addr2 = trim(strip_tags($_POST["addr2"]));
