@@ -9,29 +9,34 @@ if (!empty($_POST)) {
     // for ($i = 0; $i < count($_POST); $i++) {
     //     $_POST[$i] = verifInput("nom", "vous n'avez pas remplie le champ nom.");
     // }
-    $nom = verifInput("nom", "vous n'avez pas remplie le champ nom.");
-    $prenom = verifInput("prenom", "vous n'avez pas remplie le champ prenom.");
-    $login = verifInput("login", "vous n'avez pas remplie le champ login.");
-    $pwd = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
-    $pwd2 = verifInput("pwd2", "vous n'avez pas remplie le champ pwd2.");
+    $_POST[$nom] = verifInput("nom", "vous n'avez pas remplie le champ nom.");
+    $_POST[$prenom] = verifInput("prenom", "vous n'avez pas remplie le champ prenom.");
+    $_POST[$login] = verifInput("login", "vous n'avez pas remplie le champ login.");
+    $_POST[$pwd] = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
+    $_POST[$pwd2] = verifInput("pwd2", "vous n'avez pas remplie le champ pwd2.");
     if ($pwd !== $pwd2) {
         $erreur['pwd2'] = "les 2 passwords ne sont pas identiques";
     }
-    $email = verifInput("email", "vous n'avez pas remplie le champ email.");
+    $_POST[$email] = verifInput("email", "vous n'avez pas remplie le champ email.");
     // filter_var ???
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $erreur["email"] = "l'adresse email n'est pas validé";
     }
-    $addr1 = verifInput("addr1", "vous n'avez pas remplie le champ addr1.");
-    $addr2 = trim(strip_tags($_POST["addr2"]));
-    $cp = verifNum("cp", '5', "le code postal n'est pas valide");
+    $_POST[$addr1] = verifInput("addr1", "vous n'avez pas remplie le champ addr1.");
+    $_POST[$addr2] = trim(strip_tags($_POST["addr2"]));
+    $_POST[$cp] = verifNum("cp", '5', "le code postal n'est pas valide");
     var_dump($_POST['cp']);
-    $tel = verifNum("tel", '10', "le numero de tel n'est pas valide");
+    $_POST[$tel] = verifNum("tel", '10', "le numero de tel n'est pas valide");
     var_dump($_POST['tel']);
-    $ville = verifInput("ville", "vous n'avez pas remplie le champ ville.");
-    $hashPwd = password_hash($pwd, PASSWORD_ARGON2I);
-    var_dump($hashPwd);
+    $_POST[$ville] = verifInput("ville", "vous n'avez pas remplie le champ ville.");
+
+
     var_dump($erreur);
+    if (count($erreur) === 0) {
+        $hashPwd = password_hash($pwd, PASSWORD_BCRYPT);
+        $hashPwd = password_hash($hashpwd, PASSWORD_ARGON2I);
+        insertUser($nom, $prenom, $login, $hashpwd, $email, $addr1, $addr2, $cp, $ville, $tel);
+    }
 }
 ?>
 <!-- form>(input*11+select>(option)) -->

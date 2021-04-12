@@ -24,6 +24,25 @@ function selectVinyleById($id)
     $result = $query->fetch();
     return $result;
 }
+
+function insertUser($tbUSer)
+{
+    global $pdo;
+    $rq = "INSERT INTO user(nom,prenom, login, pwd, role, email, addr1, addr2, cp, ville, tel )
+            VALUES (:nom,:prenom, :login, :pwd, 'user', :email, :addr1, :addr2, :cp, :ville, :tel)";
+    $query = $pdo->prepare($rq);
+    $query->bindValue(':nom', $tbUSer['nom'], PDO::PARAM_STR);
+    $query->bindValue(':prenom', $tbUSer['prenom'], PDO::PARAM_STR);
+    $query->bindValue(':login', $tbUSer['login'], PDO::PARAM_STR);
+    $query->bindValue(':pwd', $tbUSer['pwd'], PDO::PARAM_STR);
+    $query->bindValue(':email', $tbUSer['email'], PDO::PARAM_STR);
+    $query->bindValue(':addr1', $tbUSer['addr1'], PDO::PARAM_INT);
+    $query->bindValue(':addr2', $tbUSer['addr2'], PDO::PARAM_STR);
+    $query->bindValue(':cp', $tbUSer['cp'], PDO::PARAM_INT);
+    $query->bindValue(':ville', $tbUSer['ville'], PDO::PARAM_STR);
+    $query->bindValue(':tel', $tbUSer['tel'], PDO::PARAM_INT);
+    $query->execute();
+}
 // functions courantes 
 function verifInput($input, $txtErreur)
 {   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
