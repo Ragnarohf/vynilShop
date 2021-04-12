@@ -41,8 +41,10 @@ if (!empty($_POST)) {
     if (count($erreur) === 0) {
         $hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
         $_POST['pwd'] = password_hash($hashPwd, PASSWORD_ARGON2I);
-
         insertUser($_POST);
+        $_SESSION['nom'] = $_POST['nom'];
+        $_SESSION['prenom'] = $_POST['prenom'];
+        $_SESSION['role'] = $_POST['role'];
     }
 };
 ?>
@@ -74,6 +76,7 @@ if (!empty($_POST)) {
         <div class="error"></div>
         <input type="text" name="ville" id="ville" placeholder="Ville">
         <div class="error"></div>
+        <input type="checkbox" name="rgpd" id="rdpd">
         <input type="submit" value="Envoyer">
     </form>
 </div>
