@@ -25,7 +25,11 @@ if (!empty($_POST)) {
     $addr1 = verifInput("addr1", "vous n'avez pas remplie le champ addr1.");
     $addr2 = trim(strip_tags($_POST["addr2"]));
     $cp = intval(verifInput("cp", "vous n'avez pas remplie le champ cp."));
+    //preg_match($patern,$chaine)
+    //$patern = '
+    verifNum($cp, 5, "le code postal n'est pas valide");
     $tel = intval(verifInput("tel", "vous n'avez pas remplie le champ tel."));
+    verifNum($tel, 10, "le numero de tel n'est pas valide");
     $ville = verifInput("ville", "vous n'avez pas remplie le champ ville.");
 }
 ?>

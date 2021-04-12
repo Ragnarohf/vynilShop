@@ -40,3 +40,13 @@ function verifInput($input, $txtErreur)
         //array_push($erreur,$input $txtErreur);
     }
 }
+
+
+function verifNum($input, $nb, $txtErreur)
+{
+    $chaine = $input;
+    $patern = "@[0-9]{$nb}@";
+    if (!preg_match($patern, $chaine)) {
+        $erreur[$input] = $txtErreur;
+    }
+}
