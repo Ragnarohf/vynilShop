@@ -29,12 +29,18 @@ if (!empty($_POST)) {
     $_POST['tel'] = verifNum("tel", '10', "le numero de tel n'est pas valide");
     // var_dump($_POST['tel']);
     $_POST['ville'] = verifInput("ville", "vous n'avez pas remplie le champ ville.");
-
+    if (selectUserBy("login", $_POST['login'], PDO::PARAM_STR)) {
+        $erreur['login'] = 'Ce login existe deja';
+    }
+    if (selectUserBy("email", $_POST['email'], PDO::PARAM_STR)) {
+        $erreur['email'] = 'Cet email est deja enregistré';
+    }
 
     // var_dump($erreur);
     if (count($erreur) === 0) {
         $hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
         $_POST['pwd'] = password_hash($hashPwd, PASSWORD_ARGON2I);
+
         insertUser($_POST);
     }
 };

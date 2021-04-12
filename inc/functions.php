@@ -43,6 +43,18 @@ function insertUser($tbUSer)
     $query->bindValue(':tel', $tbUSer['tel'], PDO::PARAM_INT);
     $query->execute();
 }
+
+function selectUserBy($field, $value, $type)
+{
+    global $pdo;
+    // var_dump($id);
+    $rq = "SELECT * from user where " . $field . "=:" . $field;
+    $query = $pdo->prepare($rq);
+    $query->bindValue(':', $field, $type);
+    $query->execute();
+    $result = $query->fetch();
+    return $result;
+}
 // functions courantes 
 function verifInput($input, $txtErreur)
 {   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
