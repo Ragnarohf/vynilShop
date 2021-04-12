@@ -43,10 +43,15 @@ function verifInput($input, $txtErreur)
 
 
 function verifNum($input, $nb, $txtErreur)
-{
-    $chaine = $input;
+{   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
+    // je le déclare en global 
+    global $erreur;
+    //mon patern ne comprendra que des chiffres de 0 a 9 et $nb caractere;
     $patern = "@[0-9]{$nb}@";
-    if (!preg_match($patern, $chaine)) {
+    if (preg_match($patern, $_POST[$input])) {
+        //je m'assure que la valeur renvoyé sera un int pour ma requetes sql avec intVal
+        return intval($_POST($input));
+    } else {
         $erreur[$input] = $txtErreur;
     }
 }
