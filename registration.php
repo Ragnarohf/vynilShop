@@ -29,7 +29,7 @@ if (!empty($_POST)) {
     $tel = verifNum("tel", '10', "le numero de tel n'est pas valide");
     var_dump($_POST['tel']);
     $ville = verifInput("ville", "vous n'avez pas remplie le champ ville.");
-    $hashPwd = password_hash($pwd, PASSWORD_BCRYPT);
+    $hashPwd = password_hash($pwd, PASSWORD_ARGON2I);
     var_dump($hashPwd);
     var_dump($erreur);
 }
