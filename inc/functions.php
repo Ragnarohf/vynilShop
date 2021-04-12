@@ -70,7 +70,7 @@ function verifNum($input, $nb, $txtErreur)
     // var_dump($_POST[$input]);
     if (preg_match($patern, $_POST[$input])) {
         //je m'assure que la valeur renvoyé sera un int pour ma requetes sql avec intVal
-        return intval($_POST[$input]);
+        return intval($_POST[$input]); // ici 0235000000 devient 235000000 supprimer le premier zero
     } else {
         $erreur[$input] = $txtErreur;
     }
