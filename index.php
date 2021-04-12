@@ -1,6 +1,7 @@
 <?php
 session_start();
-$_SESSION["prenom"] = "tintin";
+$_SESSION["prenom"] = "BOLOSS";
+
 
 require_once("./inc/functions.php");
 include('./inc/header.php');

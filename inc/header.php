@@ -56,7 +56,7 @@
             </form>
         </nav>
         <div>
-            bonjour <?php echo $_SESSION["prenom"]; ?>
+            bonjour <?php echo $_SESSION["prenom"];   ?>
         </div>
 
     </header>
