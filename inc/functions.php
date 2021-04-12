@@ -1,6 +1,6 @@
 <?php
 require_once("./inc/pdo.php");
-
+// function requetes MySQl
 function selectAllVinyles($order)
 {
     global $pdo;
@@ -23,4 +23,20 @@ function selectVinyleById($id)
     $query->execute();
     $result = $query->fetch();
     return $result;
+}
+// functions courantes 
+function verifInput($input, $txtErreur)
+{   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
+    // je le déclare en global 
+    global $erreur;
+    // strlen me permet de verifier que ma chaine $input (string)
+    //contient bien au moins 1 caractere
+    if (strlen($_POST[$input]) > 0) {
+        //trim() supprime tous les caracteres invisible 
+        return  trim(strip_tags($_POST[$input]));
+    } else {
+        //j'ajoute une nouvelle erreur a mon tableau en cas de champs vide 
+        $erreur[$input] = $txtErreur;
+        //array_push($erreur,$input $txtErreur);
+    }
 }

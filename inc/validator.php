@@ -1,6 +1,7 @@
 <?php
 // pour executer des requetes mysql j'ai besoin dans ce fichier d'appeler ma conexion a la bdd
 require_once('pdo.php');
+require_once('functions.php');
 // phpinfo();permet de connaitre les spec dus erveur ex:taille maximal des fichiers uploadés
 //$_FILES permet de stocker les fichiers uploadés (input type="files)
 $erreur = [];
@@ -15,22 +16,23 @@ if (!empty($_POST)) {
 
     //Gestion donnée du POST
 
-
-    function verifInput($input, $txtErreur)
-    {   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
-        // je le déclare en global 
-        global $erreur;
-        // strlen me permet de verifier que ma chaine $input (string)
-        //contient bien au moins 1 caractere
-        if (strlen($_POST[$input]) > 0) {
-            //trim() supprime tous les caracteres invisible 
-            return  trim(strip_tags($_POST[$input]));
-        } else {
-            //j'ajoute une nouvelle erreur a mon tableau en cas de champs vide 
-            $erreur[$input] = $txtErreur;
-            //array_push($erreur,$input $txtErreur);
-        }
-    }
+    // la function verifInput va etre partagées entre plusieurs formulaires : DRY
+    // je la partage sur function.php
+    // function verifInput($input, $txtErreur)
+    // {   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
+    //     // je le déclare en global 
+    //     global $erreur;
+    //     // strlen me permet de verifier que ma chaine $input (string)
+    //     //contient bien au moins 1 caractere
+    //     if (strlen($_POST[$input]) > 0) {
+    //         //trim() supprime tous les caracteres invisible 
+    //         return  trim(strip_tags($_POST[$input]));
+    //     } else {
+    //         //j'ajoute une nouvelle erreur a mon tableau en cas de champs vide 
+    //         $erreur[$input] = $txtErreur;
+    //         //array_push($erreur,$input $txtErreur);
+    //     }
+    // }
     $title = verifInput("title", "le champ titre est vide");
     $artiste = verifInput("artiste", "le champ artiste est vide");
     $genre = verifInput("genre",  "le champ genre est vide");

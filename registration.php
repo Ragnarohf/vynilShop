@@ -1,7 +1,26 @@
 <?php
 require_once("./inc/functions.php");
-
+require_once("./inc/pdo.php"); // ne sert a rien deja appelé dans functions.php
 include('./inc/header.php');
+//je teste l'existance de données post
+if (!empty($_POST)) {
+    $erreur = [];
+    // autre methode pour traiter mes entrés
+    // for ($i = 0; $i < count($_POST); $i++) {
+    //     $_POST[$i] = verifInput("nom", "vous n'avez pas remplie le champ nom.");
+    // }
+    $nom = verifInput("nom", "vous n'avez pas remplie le champ nom.");
+    $prenom = verifInput("prenom", "vous n'avez pas remplie le champ prenom.");
+    $login = verifInput("login", "vous n'avez pas remplie le champ login.");
+    $pwd = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
+    $pwd2 = verifInput("pwd2", "vous n'avez pas remplie le champ pwd2.");
+    $email = verifInput("email", "vous n'avez pas remplie le champ email.");
+    $addr1 = verifInput("addr1", "vous n'avez pas remplie le champ addr1.");
+    $addr2 = trim(strip_tags($_POST["addr2"]));
+    $cp = intval(verifInput("cp", "vous n'avez pas remplie le champ cp."));
+    $tel = verifInput("tel", "vous n'avez pas remplie le champ tel.");
+    $ville = verifInput("ville", "vous n'avez pas remplie le champ ville.");
+}
 ?>
 <!-- form>(input*11+select>(option)) -->
 <div id="formmp3">
@@ -13,11 +32,13 @@ include('./inc/header.php');
         <div class="error"></div>
         <input type="text" name="login" id="login" placeholder="Login">
         <div class="error"></div>
+        <!-- Bonus show hide password jQuery 
+        https://codepen.io/Sohail05/pen/yOpeBm -->
         <input type="text" name="pwd" id="pwd" placeholder="Mot de passe ">
         <div class="error"></div>
         <input type="text" name="pwd2" id="pwd2" placeholder="Confirmez Mot de passe">
         <div class="error"></div>
-        <input type="text" name="email" id="email" placeholder="Email">
+        <input type="email" name="email" id="email" placeholder="Email">
         <div class="error"></div>
         <input type="text" name="tel" id="tel" placeholder="Téléphone">
         <div class="error"></div>
