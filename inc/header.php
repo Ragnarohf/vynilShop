@@ -1,15 +1,15 @@
 <?php
-if (!empty($_GET['themeSwitch']) || !empty($_SESSION['themeSwitch'])) {
-    //j'insere dans ma session le theme choisie par mon utilisateur
-    $_SESSION['themeSwitch'] = $_GET['themeSwitch'];
-    $themeChecked = $_SESSION['themeSwitch'];
-    //je determine quel theme bootswatch va etre utiliser 
-    if ($_GET['themeSwitch']) {
-        $themeSwitch = "https://bootswatch.com/4/flatly/bootstrap.css";
-    } else {
-        $themeSwitch = "https://bootswatch.com/4/journal/bootstrap.min.css";
-    }
-}
+// if (!empty($_GET['themeSwitch']) || !empty($_SESSION['themeSwitch'])) {
+//     //j'insere dans ma session le theme choisie par mon utilisateur
+//     $_SESSION['themeSwitch'] = $_GET['themeSwitch'];
+//     $themeChecked = $_SESSION['themeSwitch'];
+//     //je determine quel theme bootswatch va etre utiliser 
+//     if ($_GET['themeSwitch']) {
+//         $themeSwitch = "https://bootswatch.com/4/flatly/bootstrap.css";
+//     } else {
+//         $themeSwitch = "https://bootswatch.com/4/journal/bootstrap.min.css";
+//     }
+// }
 if (!isset($themeSwitch)) { // si aucun theme definie, je choisie une theme par defaut
     $themeSwitch = "https://bootswatch.com/4/flatly/bootstrap.css";
     $themeChecked = false;

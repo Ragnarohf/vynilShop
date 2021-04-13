@@ -3,9 +3,10 @@ session_start();
 require_once("./inc/functions.php");
 require_once("./inc/pdo.php"); // ne sert a rien deja appelé dans functions.php
 include('./inc/header.php');
+$erreur = [];
 //je teste l'existance de données post 
 if (!empty($_POST)) {
-    $erreur = [];
+
     // autre methode pour traiter mes entrés
     // for ($i = 0; $i < count($_POST); $i++) {
     //     $_POST[$i] = verifInput("nom", "vous n'avez pas remplie le champ nom.");
