@@ -1,3 +1,20 @@
+<?php
+if (!empty($_GET['themeSwitch']) || !empty($_SESSION['themeSwitch'])) {
+    //j'insere dans ma session le theme choisie par mon utilisateur
+    $_SESSION['themeSwitch'] = $_GET['themeSwitch'];
+    $themeChecked = $_SESSION['themeSwitch'];
+    //je determine quel theme bootswatch va etre utiliser 
+    if ($_GET['themeSwitch']) {
+        $themeSwitch = "https://bootswatch.com/4/flatly/bootstrap.css";
+    } else {
+        $themeSwitch = "https://bootswatch.com/4/journal/bootstrap.min.css";
+    }
+}
+if (!isset($themeSwitch)) { // si aucun theme definie, je choisie une theme par defaut
+    $themeSwitch = "https://bootswatch.com/4/flatly/bootstrap.css";
+    $themeChecked = false;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,6 +29,7 @@
 
     <!-- Styles librairies puis styles perso  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" id="linktheme" href=<?= $themeSwitch ?>>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>VinylShop</title>
@@ -19,48 +37,51 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.php">VinylShop</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="index.php">VynilShop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">home
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registration.php">Formulaires user</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                        <a class="nav-link" href="formulaire.php">Formulaires admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="formulaire.php">Formulaires admin</a>
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">logout</a>
                     </li>
+
+                    <div class="custom-control custom-switch text-light d-inline">
+                        <input type="checkbox" class="custom-control-input" id="themeSwitch" checked="<?= $themeChecked ?>">
+                        <label class="custom-control-label" for="themeSwitch">Nuit/jour</label>
+
                 </ul>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary ">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Light
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> dark
-                    </label>
-
-                </div>
-
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary  my-sm-0" type="submit">Search</button>
                 </form>
+            </div>
         </nav>
-        <?php if (!empty($_SESSION)) { ?>
+
+
+        </div>
+        <?php if (!empty($_SESSION['prenom'])) { ?>
             <div>Bonjour <?= $_SESSION['prenom'] . " " . $_SESSION['nom'] ?></div>
         <?php } else { ?>
             <div>Vous n'êtes pas enregistrés.</div>
         <?php } ?>
+
+        <script src='./assets/js/themeSwitch.js'></script>
     </header>
     <main>

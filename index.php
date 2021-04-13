@@ -4,7 +4,7 @@ require_once("./inc/functions.php");
 include('./inc/header.php');
 
 $order = "title";
-if (!empty($_GET)) {
+if (!empty($_GET['order'])) {
     $order = $_GET['order'];
 }
 $vinyles = selectAllVinyles($order);

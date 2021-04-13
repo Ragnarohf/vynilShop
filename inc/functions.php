@@ -55,6 +55,17 @@ function selectUserBy($field, $value, $type)
     $result = $query->fetch();
     return $result;
 }
+function selectUserForLogin($login, $pwd)
+{
+    global $pdo;
+    $rq = "SELECT * from user where login=:login and pwd=:pwd";
+    $query = $pdo->prepare($rq);
+    $query->bindValue(':login', $login, PDO::PARAM_STR);
+    $query->bindValue(':pwd', $pwd, PDO::PARAM_STR);
+    $query->execute();
+    $result = $query->fetch();
+    return $result;
+}
 // functions courantes 
 function verifInput($input, $txtErreur)
 {   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
