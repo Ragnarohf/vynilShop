@@ -1,7 +1,7 @@
 <?php
+
 session_start();
 require_once("./inc/functions.php");
-// selectUserForLogin($login, $pwd)
 include('./inc/header.php');
 //je teste l'existance de données post 
 if (!empty($_POST)) {
@@ -10,7 +10,16 @@ if (!empty($_POST)) {
     $_POST['login'] = verifInput("login", "vous n'avez pas remplie le champ login.");
     $_POST['pwd'] = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
     if (count($erreur) === 0) {
-        //demain
+
+
+
+        $userLog = selectUserForLogin($_POST['login'], $_POST['pwd']);
+        if ($userLog) {
+
+            // $_SESSION['nom'] =$userLog
+        } else {
+            "vous n'etes pas le bon utilisateur";
+        }
     }
 }
 

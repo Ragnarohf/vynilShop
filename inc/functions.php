@@ -58,13 +58,25 @@ function selectUserBy($field, $value, $type)
 function selectUserForLogin($login, $pwd)
 {
     global $pdo;
-    $rq = "SELECT * from user where login=:login and pwd=:pwd";
+    var_dump($login, $pwd);
+    $rq = "SELECT login, nom, prenom,pwd,role from user where login=:login ";
     $query = $pdo->prepare($rq);
     $query->bindValue(':login', $login, PDO::PARAM_STR);
-    $query->bindValue(':pwd', $pwd, PDO::PARAM_STR);
+
     $query->execute();
     $result = $query->fetch();
-    return $result;
+    if ($result) {
+        if (password_verify($pwd, $result['pwd'])) {
+            var_dump($result);
+            return $result;
+        } else {
+            $result = [];
+            echo "mot de passe incorrect";
+        }
+    } else {
+        $result = [];
+        echo 'login incorrect';
+    }
 }
 // functions courantes 
 function verifInput($input, $txtErreur)

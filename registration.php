@@ -36,11 +36,10 @@ if (!empty($_POST)) {
     if (selectUserBy("email", $_POST['email'], PDO::PARAM_STR)) {
         $erreur['email'] = 'Cet email est deja enregistré';
     }
-
     var_dump($erreur);
     if (count($erreur) === 0) {
-        $hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
-        $_POST['pwd'] = password_hash($hashPwd, PASSWORD_ARGON2I);
+        //$hashPwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
+        $_POST['pwd'] = password_hash($_POST['pwd'], PASSWORD_ARGON2I);
         insertUser($_POST);
         // mon utilisateur est bien enregistré
         //je rentre ses informations dans la $_SESSION
