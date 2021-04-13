@@ -56,7 +56,11 @@ if (!empty($_POST)) {
         <input type="text" name="nom" id="nom" placeholder="Nom" <?php if (!empty($_POST['nom']) && strlen($_POST['nom']) > 0) {
                                                                         echo "value='" . $_POST['nom'] . "'";
                                                                     } ?>>
-        <div class="error"></div>
+        <?php
+        if (array_key_exists('nom', $erreur)) {
+            echo "<div class='error'>" . $erreur['nom'] . "</div>";
+        }
+        ?>
         <input type="text" name="prenom" id="prenom" placeholder="Prenom">
         <div class="error"></div>
         <input type="text" name="login" id="login" placeholder="Login">

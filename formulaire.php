@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!empty($_SESSION)) {
+if (!empty($_SESSION['role'])) {
     if ($_SESSION['role'] !== 'role_admin') {
         header("Location:index.php");
     }

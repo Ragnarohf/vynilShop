@@ -45,9 +45,15 @@ $vinyles = selectAllVinyles($order);
                 <h5 class="card-title"><?= $vinyles[$i]['title'] ?></h5>
                 <p class="card-text"><?= $vinyles[$i]['artiste'] ?></p>
                 <p class="card-text"><?= $vinyles[$i]['genre'] ?></p>
+                <?php if (!empty($_SESSION['role'])) { ?>
+                    <a href="single.php?id=<?= $vinyles[$i]['id'] ?>" class="btn btn-primary">Ecoutez le morceau</a>
+                <?php } else { ?>
+                    <a href="registration.php" class="btn btn-primary">Inscrivez vous</a>
+
+                <?php } ?>
 
 
-                <a href="single.php?id=<?= $vinyles[$i]['id'] ?>" class="btn btn-primary">Ecoutez le morceau</a>
+
             </div>
         </div>
     <?php

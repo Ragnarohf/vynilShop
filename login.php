@@ -17,6 +17,7 @@ if (!empty($_POST)) {
             $_SESSION['nom'] = $userLog['nom'];
             $_SESSION['prenom'] = $userLog['prenom'];
             $_SESSION['role'] = $userLog['role'];
+            header("Location:index.php");
         } else {
             "vous n'etes pas le bon utilisateur";
         }
