@@ -62,7 +62,6 @@ function selectUserForLogin($login, $pwd)
     $rq = "SELECT login, nom, prenom,pwd,role from user where login=:login ";
     $query = $pdo->prepare($rq);
     $query->bindValue(':login', $login, PDO::PARAM_STR);
-
     $query->execute();
     $result = $query->fetch();
     if ($result) {

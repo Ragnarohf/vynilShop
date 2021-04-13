@@ -53,7 +53,9 @@ if (!empty($_POST)) {
 <div id="formmp3">
     <h1>Enregistrez-vous</h1>
     <form class="formulaire" action="registration.php" method="POST" name="registration">
-        <input type="text" name="nom" id="nom" placeholder="Nom">
+        <input type="text" name="nom" id="nom" placeholder="Nom" <?php if (!empty($_POST['nom']) && strlen($_POST['nom']) > 0) {
+                                                                        echo "value='" . $_POST['nom'] . "'";
+                                                                    } ?>>
         <div class="error"></div>
         <input type="text" name="prenom" id="prenom" placeholder="Prenom">
         <div class="error"></div>

@@ -11,12 +11,12 @@ if (!empty($_POST)) {
     $_POST['pwd'] = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
     if (count($erreur) === 0) {
 
-
-
         $userLog = selectUserForLogin($_POST['login'], $_POST['pwd']);
         if ($userLog) {
 
-            // $_SESSION['nom'] =$userLog
+            $_SESSION['nom'] = $userLog['nom'];
+            $_SESSION['prenom'] = $userLog['prenom'];
+            $_SESSION['role'] = $userLog['role'];
         } else {
             "vous n'etes pas le bon utilisateur";
         }
