@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (empty($_SESSION['role'])) {
+    header("Location:index.php");
+}
 require_once("./inc/functions.php");
 if (!empty($_GET)) {
     $id = intval($_GET['id']);

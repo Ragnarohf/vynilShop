@@ -10,10 +10,10 @@
 //         $themeSwitch = "https://bootswatch.com/4/journal/bootstrap.min.css";
 //     }
 // }
-if (!isset($themeSwitch)) { // si aucun theme definie, je choisie une theme par defaut
-    $themeSwitch = "https://bootswatch.com/4/flatly/bootstrap.css";
-    $themeChecked = false;
-}
+// if (!isset($themeSwitch)) { // si aucun theme definie, je choisie une theme par defaut
+//     $themeSwitch = "https://bootswatch.com/4/flatly/bootstrap.css";
+//     $themeChecked = false;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,7 +29,8 @@ if (!isset($themeSwitch)) { // si aucun theme definie, je choisie une theme par 
 
     <!-- Styles librairies puis styles perso  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" id="linktheme" href=<?= $themeSwitch ?>>
+    <!-- <link rel="stylesheet" id="linktheme" href=<?php //$themeSwitch 
+                                                    ?>> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>VinylShop</title>
@@ -49,21 +50,32 @@ if (!isset($themeSwitch)) { // si aucun theme definie, je choisie une theme par 
                         <a class="nav-link" href="index.php">home
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registration.php">Formulaires user</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="formulaire.php">Formulaires admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">logout</a>
-                    </li>
+                    <?php if (empty($_SESSION['role'])) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registration.php">s'inscrire</a>
+                        </li>
+                    <?php } ?>
+
+                    <?php if (!empty($_SESSION['role']) && $_SESSION['role'] === 'role_admin') { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="formulaire.php">Formulaires admin</a>
+                        </li>
+                    <?php } ?>
+
+                    <?php if (empty($_SESSION['role'])) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>
+                    <?php } ?>
+
+                    <?php if (!empty($_SESSION['role'])) { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">logout</a>
+                        </li>
+                    <?php } ?>
 
                     <div class="custom-control custom-switch text-light d-inline">
-                        <input type="checkbox" class="custom-control-input" id="themeSwitch" checked="<?= $themeChecked ?>">
+                        <input type="checkbox" class="custom-control-input" id="themeSwitch">
                         <label class="custom-control-label" for="themeSwitch">Nuit/jour</label>
 
                 </ul>

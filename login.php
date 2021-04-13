@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require_once("./inc/functions.php");
 include('./inc/header.php');
@@ -10,16 +9,14 @@ if (!empty($_POST)) {
     $_POST['login'] = verifInput("login", "vous n'avez pas remplie le champ login.");
     $_POST['pwd'] = verifInput("pwd", "vous n'avez pas remplie le champ pwd.");
     if (count($erreur) === 0) {
-
         $userLog = selectUserForLogin($_POST['login'], $_POST['pwd']);
         if ($userLog) {
-
             $_SESSION['nom'] = $userLog['nom'];
             $_SESSION['prenom'] = $userLog['prenom'];
             $_SESSION['role'] = $userLog['role'];
             header("Location:index.php");
         } else {
-            "vous n'etes pas le bon utilisateur";
+            echo "vous n'etes pas le bon utilisateur";
         }
     }
 }

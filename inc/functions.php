@@ -58,7 +58,7 @@ function selectUserBy($field, $value, $type)
 function selectUserForLogin($login, $pwd)
 {
     global $pdo;
-    var_dump($login, $pwd);
+    //var_dump($login, $pwd);
     $rq = "SELECT login, nom, prenom,pwd,role from user where login=:login ";
     $query = $pdo->prepare($rq);
     $query->bindValue(':login', $login, PDO::PARAM_STR);
@@ -66,7 +66,7 @@ function selectUserForLogin($login, $pwd)
     $result = $query->fetch();
     if ($result) {
         if (password_verify($pwd, $result['pwd'])) {
-            var_dump($result);
+            //var_dump($result);
             return $result;
         } else {
             $result = [];
