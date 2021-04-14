@@ -12,6 +12,25 @@ function selectAllVinyles($order)
     $result = $query->fetchAll();
     return $result;
 }
+function selectVinylesForPaginator($order, $index, $limite)
+{
+    global $pdo;
+    //$order servira a laisser le choix du classement pour mes users
+    $rq = " SELECT * from vinyles order by $order limit $index,$limite";
+    $query = $pdo->prepare($rq);
+    // $query->bindValue(':order', $order, PDO::PARAM_STR);
+    $query->execute();
+    $result = $query->fetchAll();
+
+    $rq2 = " SELECT * from vinyles order by $order ";
+    $query2 = $pdo->prepare($rq2);
+    // $query->bindValue(':order', $order, PDO::PARAM_STR);
+    $query2->execute();
+    $nbPage = ceil(count($query2->fetchAll()) / 4);
+    var_dump(ceil($nbPage));
+
+    return [$result, $nbPage];
+}
 
 function selectVinyleById($id)
 {

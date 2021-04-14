@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+protectUrl('role_admin');
 // pour executer des requetes mysql j'ai besoin dans ce fichier d'appeler ma conexion a la bdd
 
 require_once('./inc/functions.php');

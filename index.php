@@ -7,7 +7,10 @@ $order = "title";
 if (!empty($_GET['order'])) {
     $order = $_GET['order'];
 }
-$vinyles = selectAllVinyles($order);
+$limite = 4;
+$index = 0;
+$vinyles = selectVinylesForPaginator($order, $index, $limite)[0];
+//$vinyles = selectAllVinyles($order);
 //var_dump($vinyles);
 // die();
 
@@ -60,6 +63,15 @@ $vinyles = selectAllVinyles($order);
     }
 
     ?>
+    <nav aria-label="Page navigation example w-100 d-flex">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
 
 </section>
 
