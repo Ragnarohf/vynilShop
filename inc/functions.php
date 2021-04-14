@@ -78,6 +78,34 @@ function selectUserForLogin($login, $pwd)
     }
 }
 // functions courantes 
+function protectUrl($role)
+{
+    //admin
+    switch ($role) {
+        case 'role_admin':
+            if (!empty($_SESSION['role'])) {
+                if ($_SESSION['role'] !== $role) {
+                    header("Location:index.php");
+                    die();
+                }
+            } else {
+                header("Location:index.php");
+                die();
+            }
+            break;
+        case 'role_user':
+            if (empty($_SESSION['role'])) {
+                header("Location:index.php");
+                die();
+            }
+            break;
+
+        default:
+            # code...
+            break;
+    }
+}
+
 function verifInput($input, $txtErreur)
 {   // pour poiuvoir utiliser mon tableau d'erreur a l'interieur de ma fonction
     // je le déclare en global 

@@ -1,10 +1,9 @@
 <?php
 session_start();
 //protection contre un acces direct via l'url 
-if (empty($_SESSION['role'])) {
-    header("Location:index.php");
-}
 require_once("./inc/functions.php");
+protectUrl('role_user');
+
 if (!empty($_GET['id'])) {
     $id = intval($_GET['id']);
     $vinyle = selectVinyleById($id);

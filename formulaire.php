@@ -1,13 +1,10 @@
 <?php
 session_start();
-if (!empty($_SESSION['role'])) {
-    if ($_SESSION['role'] !== 'role_admin') {
-        header("Location:index.php");
-    }
-} else {
-    header("Location:index.php");
-}
 require_once("./inc/functions.php");
+//protection contre un acces direct via l'url 
+protectUrl('role_admin');
+
+
 include('./inc/header.php');
 $erreur = [];
 if (!empty($_GET)) {
