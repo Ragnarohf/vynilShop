@@ -1,5 +1,6 @@
 <?php
 session_start();
+//protection contre un acces direct via l'url 
 if (empty($_SESSION['role'])) {
     header("Location:index.php");
 }
