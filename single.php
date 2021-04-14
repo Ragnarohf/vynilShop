@@ -4,7 +4,7 @@ if (empty($_SESSION['role'])) {
     header("Location:index.php");
 }
 require_once("./inc/functions.php");
-if (!empty($_GET)) {
+if (!empty($_GET['id'])) {
     $id = intval($_GET['id']);
     $vinyle = selectVinyleById($id);
 } else {
