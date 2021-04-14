@@ -38,7 +38,6 @@ $vinyles = selectAllVinyles($order);
         */
     ?>
 
-
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="./assets/cover/<?= $vinyles[$i]['cover_img'] ?>" alt="<?= $vinyles[$i]['title'] . " - " . $vinyles[$i]['artiste'] ?>">
             <div class="card-body">

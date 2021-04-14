@@ -1,9 +1,14 @@
 <?php
+
 // pour executer des requetes mysql j'ai besoin dans ce fichier d'appeler ma conexion a la bdd
-require_once('pdo.php');
-require_once('functions.php');
+
+require_once('./inc/functions.php');
 // phpinfo();permet de connaitre les spec dus erveur ex:taille maximal des fichiers uploadés
 //$_FILES permet de stocker les fichiers uploadés (input type="files)
+require_once("./vendor/autoload.php");
+
+use Gumlet\ImageResize;
+
 $erreur = [];
 
 
@@ -73,7 +78,7 @@ if (!empty($_POST)) {
     //je vérifie que mon tableau d'erreur soit vide 
     if (count($erreur) === 0) {
         $mp3Name = $_FILES['mp3']['name'];
-        $coverImg = $_FILES['coverImg']['name'];
+        $coverImgName = $_FILES['coverImg']['name'];
         var_dump("mp3:", $mp3Name);
         //insertion en base
         $rq = "SELECT id FROM vinyles WHERE mp3 = :mp3Name";
@@ -86,7 +91,7 @@ if (!empty($_POST)) {
             VALUES (:mp3Name, :coverImg,:title, :artiste, :genre,:annee,:description)";
             $query = $pdo->prepare($rq);
             $query->bindValue(':mp3Name', $mp3Name, PDO::PARAM_STR);
-            $query->bindValue(':coverImg', $coverImg, PDO::PARAM_STR);
+            $query->bindValue(':coverImg', $coverImgName, PDO::PARAM_STR);
             $query->bindValue(':title', $title, PDO::PARAM_STR);
             $query->bindValue(':artiste', $artiste, PDO::PARAM_STR);
             $query->bindValue(':genre', $genre, PDO::PARAM_STR);
@@ -95,18 +100,22 @@ if (!empty($_POST)) {
             $query->execute();
             //j'upload mes fichiers
             var_dump($mp3);
-            move_uploaded_file($mp3, "../assets/audio/" . $_FILES["mp3"]["name"]);
-            move_uploaded_file($coverImg, "../assets/cover/" . $_FILES["coverImg"]["name"]);
+            move_uploaded_file($mp3, "./assets/audio/" . $_FILES["mp3"]["name"]);
+            move_uploaded_file($coverImg, "./assets/cover/" . $_FILES["coverImg"]["name"]);
+            var_dump("///////////////////////////", $_FILES["coverImg"]["name"], "///////////////////////////");
+            $newImg = new ImageResize("./assets/cover/" . $_FILES["coverImg"]["name"]);
+            $newImg->resizeToWidth(400);
+            $newImg->save("./assets/cover/" . $_FILES["coverImg"]["name"]);
         } else {
             $erreur['mp3'] = "Ce morceau exite deja";
 
             //erreur utilisateur
             $erreur = serialize($erreur);
-            header("Location:../formulaire.php?er=$erreur");
+            header("Location:./formulaire.php?er=$erreur");
         };
     }
     //erreur utilisateur
 
     $erreur = serialize($erreur);
-    header("Location:../formulaire.php?er=$erreur");
+    header("Location:./formulaire.php?er=$erreur");
 }
