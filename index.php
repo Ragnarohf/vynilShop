@@ -9,7 +9,12 @@ if (!empty($_GET['order'])) {
 }
 $limite = 4;
 $index = 0;
-$vinyles = selectVinylesForPaginator($order, $index, $limite)[0];
+if (!empty($_GET['page'])) {
+    $index = $_GET['page'] * 4;
+}
+$tbVinyle = selectVinylesForPaginator($order, $index, $limite);
+$vinyles = $tbVinyle[0];
+$vinyles = $tbVinyle[1];
 //$vinyles = selectAllVinyles($order);
 //var_dump($vinyles);
 // die();
@@ -63,12 +68,15 @@ $vinyles = selectVinylesForPaginator($order, $index, $limite)[0];
     }
 
     ?>
-    <nav aria-label="Page navigation example w-100 d-flex">
+    <nav aria-label="Page navigation example w-1000 ">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <?php for ($i = 0; $i < $nbPage; $i++) { ?>
+                <li class="page-item"><a class="page-link" href="?page="><?= $i + 1 ?></a></li>
+
+            <?php } ?>
+
+
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
     </nav>
