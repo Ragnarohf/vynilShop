@@ -17,8 +17,8 @@ if (!empty($_POST['recherche']) && isset($_POST['recherche'])) {
         $result = json_encode($result);
         echo $result;
     } else {
-        echo "{}";
+        echo "{}"; //sans resultat renvoyer un json vide
     }
 } else {
-    echo "{}";
+    echo "{}"; //sans resultat renvoyer un json vide
 }

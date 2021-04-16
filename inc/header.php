@@ -79,9 +79,10 @@
                         <label class="custom-control-label" for="themeSwitch">Nuit/jour</label>
 
                 </ul>
-                <form class="form-inline my-lg-0">
+                <form class="form-inline my-lg-0 autoComp">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" id="recherche">
                     <button class="btn btn-secondary  my-sm-0" type="submit">Search</button>
+                    <div class="divAutoComp"></div>
                 </form>
             </div>
         </nav>

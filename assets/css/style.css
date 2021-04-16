@@ -153,3 +153,13 @@ select:hover {
   display: flex;
   justify-content: space-around;
 }
+.autoComp {
+  position: relative;
+}
+.divAutoComp {
+  display: none;
+  padding: 1rem;
+  position: absolute;
+  top: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+}

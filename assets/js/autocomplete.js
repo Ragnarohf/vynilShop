@@ -1,6 +1,11 @@
 const recherche = document.getElementById("recherche");
+const divAutoComp = document.querySelector(".divAutoComp");
 let valRecherche;
+divAutoComp.addEventListener("mouseleave", () => {
+  divAutoComp.style.display = "none";
+});
 recherche.addEventListener("keyup", () => {
+  divAutoComp.innerHTML = "";
   valRecherche = recherche.value;
   let data = "recherche=" + valRecherche;
   fetch("./inc/recherche.php", {
@@ -11,8 +16,17 @@ recherche.addEventListener("keyup", () => {
     return response.json().then((monText) => {
       console.log(monText);
       if (monText.length > 0) {
+        divAutoComp.style.display = "block";
         monText.forEach((element) => {
-          console.dir(element);
+          console.dir(element.title);
+          divAutoComp.innerHTML +=
+            "<a href='single.php?id=" +
+            element.id +
+            "'>" +
+            element.title +
+            " | " +
+            element.artiste +
+            "</a><br/>";
         });
       }
     });
