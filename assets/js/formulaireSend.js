@@ -11,12 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then(function (response) {
         response.json().then(function (result) {
-          console.dir(result.artiste);
-          let tbErreur = result;
-          document.getElementById("success").innerHTML = result.title;
-          tbErreur.forEach((element) => {
-            document.getElementById("success").innerHTML = element + "<br>";
-          });
+          for (let indice in result) {
+            document.getElementById("success").innerHTML +=
+              result[indice] + "<br>";
+          }
         });
       })
       .then((error) => {

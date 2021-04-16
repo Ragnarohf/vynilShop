@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 14 avr. 2021 à 13:22
+-- Généré le : ven. 16 avr. 2021 à 10:32
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `vinyles` (
   `annee` int(4) DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vinyles`
@@ -88,7 +88,8 @@ INSERT INTO `vinyles` (`id`, `mp3`, `cover_img`, `title`, `artiste`, `genre`, `a
 (15, 'my_mother_told_me_401744124515307675.mp3', 'sniper.jpg', 'my mother told me', 'tik tok', 'viking', 1976, 'sdvgbngnbfgvdg'),
 (16, 'jeune_demoiselle_8590792302257400485.mp3', 'sniper.jpg', 'jeune demoiselle', 'diams', 'un truc de fifou', 1977, 'dfbhfrhnfrhnfh'),
 (17, 'diam_s_ma_france_a_moi_clip_officiel_3645887202926924277.mp3', 'sniper.jpg', 'ma france a moi', 'diam\'s', 'truc de fifou', 1945, 'jkljkljkljk'),
-(24, 'biquette.mp3', 'panda.jpg', 'biquette', 'biquette', 'document animalier', 2019, 'beeeeeeeeeee');
+(24, 'biquette.mp3', 'panda.jpg', 'biquette', 'biquette', 'document animalier', 2019, 'beeeeeeeeeee'),
+(26, 'dj-battle-ft-lexy-panterra-twerk-lesson-4k.mp3', 'lexy pantera.jpg', 'dj battle', 'lexy pantera', 'musique', 1956, 'twerk');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
