@@ -66,16 +66,13 @@ $nbPage = $tbVinyle[1];
     }
 
     ?>
-    <nav aria-label="Page navigation example w-1000 ">
+    <nav aria-label="Page navigation" style="width:100vw;display:flex;justify-content:center;">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
             <?php for ($i = 0; $i < $nbPage; $i++) { ?>
-                <li class="page-item"><a class="page-link" href="?page="><?= $i + 1 ?></a></li>
-
+                <li class="page-item"><a class="page-link" href="?page=<?= $i ?>"><?= $i + 1 ?></a></li>
             <?php } ?>
-
-
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
         </ul>
     </nav>
 
