@@ -8,10 +8,12 @@ recherche.addEventListener("keyup", () => {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: data,
   }).then((response) => {
-    return response.json().then((montext) => {
-      console.log("reponse : ", montext);
-      for (let indice in result) {
-        console.dir(indice);
+    return response.json().then((monText) => {
+      console.log(monText);
+      if (monText.length > 0) {
+        monText.forEach((element) => {
+          console.dir(element);
+        });
       }
     });
   });

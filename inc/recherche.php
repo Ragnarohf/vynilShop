@@ -16,6 +16,9 @@ if (!empty($_POST['recherche']) && isset($_POST['recherche'])) {
     if (count($result) > 0) {
         $result = json_encode($result);
         echo $result;
+    } else {
+        echo "{}";
     }
-    echo $result[0]['title'];
+} else {
+    echo "{}";
 }
