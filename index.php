@@ -1,8 +1,9 @@
 <?php
 session_start();
-require_once("./inc/functions.php");
-include('./inc/header.php');
 
+
+require_once("./inc/functions.php");
+include("./inc/header.php");
 $order = "title";
 if (!empty($_GET['order'])) {
     $order = $_GET['order'];
@@ -14,11 +15,8 @@ if (!empty($_GET['page'])) {
 }
 $tbVinyle = selectVinylesForPaginator($order, $index, $limite);
 $vinyles = $tbVinyle[0];
-$vinyles = $tbVinyle[1];
+$nbPage = $tbVinyle[1];
 //$vinyles = selectAllVinyles($order);
-//var_dump($vinyles);
-// die();
-
 ?>
 
 <div id="slider"></div>

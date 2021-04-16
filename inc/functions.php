@@ -27,7 +27,7 @@ function selectVinylesForPaginator($order, $index, $limite)
     // $query->bindValue(':order', $order, PDO::PARAM_STR);
     $query2->execute();
     $nbPage = ceil(count($query2->fetchAll()) / 4);
-    var_dump(ceil($nbPage));
+    // var_dump(ceil($nbPage));
 
     return [$result, $nbPage];
 }
