@@ -26,6 +26,7 @@ if (!empty($_GET)) {
     <!-- form>(input*5+select>(option)) -->
     <div id="formmp3">
         <h1>Uploadez vos mp3</h1>
+        <div id="success"></div>
         <form class="formulaire" action="./validator.php" method="POST" enctype="multipart/form-data" name="uploadMP3">
             <label for="mp3">MP3</label>
             <input type="file" name="mp3" id="mp3">

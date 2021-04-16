@@ -110,6 +110,9 @@ if (!empty($_POST)) {
             $newImg->resizeToWidth(400);
             $newImg->save("./assets/cover/" . $_FILES["coverImg"]["name"]);
             // message sympathique;
+            $erreur['success'] = "votre titre a bien été enregistré";
+            $erreur = json_encode($erreur);
+            echo $erreur;
         } else {
             $erreur['mp3'] = "Ce morceau exite deja";
 

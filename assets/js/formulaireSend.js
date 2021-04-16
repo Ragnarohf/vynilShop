@@ -9,9 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       body: formData,
     })
-      .then((json) => {
-        console.dir(json.json());
-        let response = json.json();
+      .then(function (response) {
+        response.json().then(function (result) {
+          console.dir(result.artiste);
+          let tbErreur = result;
+          document.getElementById("success").innerHTML = result.title;
+          tbErreur.forEach((element) => {
+            document.getElementById("success").innerHTML = element + "<br>";
+          });
+        });
       })
       .then((error) => {
         console.log(error);
