@@ -1,9 +1,11 @@
 <?php
 session_start();
-protectUrl('role_admin');
+
+echo "'je suis bien sur le validator";
 // pour executer des requetes mysql j'ai besoin dans ce fichier d'appeler ma conexion a la bdd
 
 require_once('./inc/functions.php');
+protectUrl('role_admin');
 // phpinfo();permet de connaitre les spec dus erveur ex:taille maximal des fichiers uploadés
 //$_FILES permet de stocker les fichiers uploadés (input type="files)
 require_once("./vendor/autoload.php");
