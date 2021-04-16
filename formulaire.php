@@ -80,6 +80,7 @@ if (!empty($_GET)) {
     </div>
 
 </body>
+<script src="./assets/js/formulaireSend.js"></script>
 <?php
 include('./inc/footer.php');
 ?>
