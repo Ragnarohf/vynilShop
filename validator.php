@@ -105,7 +105,7 @@ if (!empty($_POST)) {
             //var_dump($mp3);
             move_uploaded_file($mp3, "./assets/audio/" . $_FILES["mp3"]["name"]);
             move_uploaded_file($coverImg, "./assets/cover/" . $_FILES["coverImg"]["name"]);
-            var_dump("///////////////////////////", $_FILES["coverImg"]["name"], "///////////////////////////");
+            //var_dump("///////////////////////////", $_FILES["coverImg"]["name"], "///////////////////////////");
             $newImg = new ImageResize("./assets/cover/" . $_FILES["coverImg"]["name"]);
             $newImg->resizeToWidth(400);
             $newImg->save("./assets/cover/" . $_FILES["coverImg"]["name"]);

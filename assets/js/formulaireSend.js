@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((json) => {
         console.dir(json.json());
+        let response = json.json();
       })
       .then((error) => {
         console.log(error);
