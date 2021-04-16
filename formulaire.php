@@ -6,11 +6,7 @@ protectUrl('role_admin');
 
 
 include('./inc/header.php');
-$erreur = [];
-if (!empty($_GET)) {
-    var_dump(unserialize(($_GET['er'])));
-    $erreur = unserialize($_GET['er']);
-} ?>
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

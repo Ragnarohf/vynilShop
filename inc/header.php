@@ -80,7 +80,7 @@
 
                 </ul>
                 <form class="form-inline my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" id="recherche">
                     <button class="btn btn-secondary  my-sm-0" type="submit">Search</button>
                 </form>
             </div>
@@ -95,5 +95,6 @@
         <?php } ?>
 
         <script src='./assets/js/themeSwitch.js'></script>
+        <script src='./assets/js/autocomplete.js'></script>
     </header>
     <main>
